@@ -1,10 +1,11 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import CompanyCard from './components/CompanyCard'
-import {companies} from './data/companies'
+import {companiesData} from './data/companies'
 import './App.css'
 
-function App({title, companies}) {
+function App({title}) {
+    const [companies, setCompany] = useState(companiesData);
     return (<>
         <section id='app'>
         <h1>{title}</h1>

@@ -1,4 +1,4 @@
-export const companies = [
+export const companiesData = [
 {   
     id: 1,
     name: "Google",
