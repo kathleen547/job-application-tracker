@@ -18,3 +18,28 @@ h2{
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
+
+#company-form form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  border-radius: 3%;
+  background-color:#FDEB9E;
+  margin-bottom: 20px;
+
+}
+
+#company-form input {
+    padding: 10px;
+    border: 1px solid #077A7D;
+    border-radius: 8px;
+}
+
+#company-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
