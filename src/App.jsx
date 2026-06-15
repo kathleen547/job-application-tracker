@@ -8,6 +8,10 @@ import './App.css';
 
 function App({title}) {
     const [companies, setCompanies] = useState(companiesData);
+    const deleteCompany = (id) => {
+        const newCompanies = companies.filter(company => company.id !== id);
+        setCompanies(newCompanies);
+    };
     return (<>
         <section id='app'>
         <h1>{title}</h1>
@@ -27,7 +31,7 @@ function App({title}) {
         </div>
             <div id='companies'>
                     {companies.map((company, i) =>(
-                        <CompanyCard key={i} {...company} />
+                        <CompanyCard key={i} {...company} deleteCompany={deleteCompany}/>
                     ))}
             </div>
             </section>
