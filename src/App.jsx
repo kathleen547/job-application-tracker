@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react'
-import CompanyCard from './components/CompanyCard'
-import AddCompanyForm from './components/CompanyForm'
-import {companiesData} from './data/companies'
-import './App.css'
+import React, { useState } from 'react';
+import {v4} from 'uuid';
+import CompanyCard from './components/CompanyCard';
+import AddCompanyForm from './components/CompanyForm';
+import {companiesData} from './data/companies';
+import './App.css';
 
 function App({title}) {
     const [companies, setCompanies] = useState(companiesData);
@@ -11,7 +12,18 @@ function App({title}) {
         <section id='app'>
         <h1>{title}</h1>
         <div id='company-form'>
-            <AddCompanyForm onAddCompany={(values) => console.log(values)}/>
+            <AddCompanyForm onAddCompany={(values) => {
+                const newCompaniesList = [
+                    ...companies,
+                    {
+                        id: v4(),
+                        name: values.name,
+                        website: values.website,
+                        notes: values.notes
+                    }
+                ];
+                setCompanies(newCompaniesList);
+            }}/>
         </div>
             <div id='companies'>
                     {companies.map((company, i) =>(
