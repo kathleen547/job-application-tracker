@@ -6,6 +6,7 @@
   width: 80%;
   padding: 30px;
   position: relative;
+  overflow: hidden;
 }
 
 h2{
@@ -31,10 +32,40 @@ h2{
 
 }
 
-#company-form input {
+#company-form input, select {
     padding: 10px;
     border: 1px solid #077A7D;
     border-radius: 8px;
+}
+
+.badge{
+  position: absolute;
+  top: 5px;
+  left: -70px;
+  width: 250px;
+  transform: rotate(-35deg);
+  color: antiquewhite;
+}
+
+.badge-interested{
+  background-color:gray;
+ 
+}
+
+.badge-applied{
+  background-color: blue;
+}
+
+.badge-interview{
+  background-color: orange;
+}
+
+.badge-offer{
+  background-color: green;
+}
+
+.badge-rejected{
+  background-color: red;
 }
 
 #company-form button {

@@ -4,18 +4,21 @@ export default function AddCompanyForm({onAddCompany}){
     const [name, setName] = useState("");
     const [website, setWebsite] = useState("");
     const [notes, setNotes] = useState("");
+    const [status, setStatus] = useState("Interested");
 
     const clearState = () => {
         setName("");
         setWebsite("");
         setNotes("");
+        setStatus("Interested");
     };
 
     const transferValues = () => {
         const values = {
             name,
             website,
-            notes
+            notes, 
+            status
         };
         onAddCompany(values);
     };
@@ -39,6 +42,14 @@ export default function AddCompanyForm({onAddCompany}){
             <input value={notes}
                 onChange={event => setNotes(event.target.value)}
                 type="text" placeholder="Notes..." required />
+            <select value={status} 
+                onChange={event => setStatus(event.target.value)}>
+                    <option value="Interested">Interested</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
             <button>SUBMIT</button>
         </form>
         </>

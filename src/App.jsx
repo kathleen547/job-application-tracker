@@ -23,7 +23,8 @@ function App({title}) {
                         id: v4(),
                         name: values.name,
                         website: values.website,
-                        notes: values.notes
+                        notes: values.notes,
+                        status: values.status
                     }
                 ];
                 setCompanies(newCompaniesList);
