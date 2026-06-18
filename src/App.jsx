@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {v4} from 'uuid';
 import CompanyCard from './components/CompanyCard';
 import AddCompanyForm from './components/CompanyForm';
@@ -7,7 +7,14 @@ import {companiesData} from './data/companies';
 import './App.css';
 
 function App({title}) {
-    const [companies, setCompanies] = useState(companiesData);
+    const [companies, setCompanies] = useState(() => {
+        const storedValue = localStorage.getItem("companies");
+        return storedValue ? JSON.parse(storedValue) : companiesData;
+    });
+
+    useEffect(() =>{
+        localStorage.setItem("companies", JSON.stringify(companies));
+    }, [companies]);
     const deleteCompany = (id) => {
         const newCompanies = companies.filter(company => company.id !== id);
         setCompanies(newCompanies);
