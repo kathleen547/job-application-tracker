@@ -15,9 +15,17 @@ function App({title}) {
     useEffect(() =>{
         localStorage.setItem("companies", JSON.stringify(companies));
     }, [companies]);
+
     const deleteCompany = (id) => {
         const newCompanies = companies.filter(company => company.id !== id);
         setCompanies(newCompanies);
+    };
+
+    const onStatusChange = (id, event) =>{
+        const nextCompaniesList = [...companies];
+        const changedCompany = nextCompaniesList.find(company => company.id === id);
+        changedCompany.status = event.target.value;
+        setCompanies(nextCompaniesList);
     };
     return (<>
         <section id='app'>
@@ -39,7 +47,7 @@ function App({title}) {
         </div>
             <div id='companies'>
                     {companies.map((company, i) =>(
-                        <CompanyCard key={i} {...company} deleteCompany={deleteCompany}/>
+                        <CompanyCard key={i} {...company} onStatusChange={onStatusChange} deleteCompany={deleteCompany}/>
                     ))}
             </div>
             </section>
