@@ -5,8 +5,10 @@ import CompanyCard from './components/CompanyCard';
 import AddCompanyForm from './components/CompanyForm';
 import {companiesData} from './data/companies';
 import './App.css';
+import SearchBar from './components/SearchBar';
 
 function App({title}) {
+
     const [companies, setCompanies] = useState(() => {
         const storedValue = localStorage.getItem("companies");
         return storedValue ? JSON.parse(storedValue) : companiesData;
@@ -27,6 +29,9 @@ function App({title}) {
         changedCompany.status = event.target.value;
         setCompanies(nextCompaniesList);
     };
+
+
+    
     return (<>
         <section id='app'>
         <h1>{title}</h1>
@@ -45,6 +50,7 @@ function App({title}) {
                 setCompanies(newCompaniesList);
             }}/>
         </div>
+            <div id='search-bar'><SearchBar/></div>
             <div id='companies'>
                     {companies.map((company, i) =>(
                         <CompanyCard key={i} {...company} onStatusChange={onStatusChange} deleteCompany={deleteCompany}/>
