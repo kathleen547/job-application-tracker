@@ -13,6 +13,8 @@ function App({title}) {
         const storedValue = localStorage.getItem("companies");
         return storedValue ? JSON.parse(storedValue) : companiesData;
     });
+    
+    const [filteredCompanies, setFilteredCompanies] = useState(companies);
 
     useEffect(() =>{
         localStorage.setItem("companies", JSON.stringify(companies));
@@ -30,6 +32,14 @@ function App({title}) {
         setCompanies(nextCompaniesList);
     };
 
+    const filterItems = (event) => {
+        const filteredItems = companies.filter((company) => 
+        company.name.toLowerCase().includes(event.target.value.toLowerCase()));
+
+        console.log("Search:", event.target.value);
+        console.log("Results:", filteredItems);
+        setFilteredCompanies(filteredItems);
+    };
 
     
     return (<>
@@ -50,9 +60,9 @@ function App({title}) {
                 setCompanies(newCompaniesList);
             }}/>
         </div>
-            <div id='search-bar'><SearchBar/></div>
+            <div id='search-bar'><SearchBar onSearchChange={filterItems}/></div>
             <div id='companies'>
-                    {companies.map((company, i) =>(
+                    {filteredCompanies.map((company, i) =>(
                         <CompanyCard key={i} {...company} onStatusChange={onStatusChange} deleteCompany={deleteCompany}/>
                     ))}
             </div>
