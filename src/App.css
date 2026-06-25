@@ -136,3 +136,8 @@ h2{
   font-weight: normal;
 }
 
+.filters{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

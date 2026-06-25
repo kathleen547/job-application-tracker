@@ -6,6 +6,7 @@ import AddCompanyForm from './components/CompanyForm';
 import {companiesData} from './data/companies';
 import './App.css';
 import SearchBar from './components/SearchBar';
+import StatusDropdown from './components/StatusDropdown';
 
 function App({title}) {
 
@@ -14,7 +15,8 @@ function App({title}) {
         return storedValue ? JSON.parse(storedValue) : companiesData;
     });
     
-    const [filteredCompanies, setFilteredCompanies] = useState(companies);
+    const [searchedText, setSearchedText] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState("All");
 
     useEffect(() =>{
         localStorage.setItem("companies", JSON.stringify(companies));
@@ -32,15 +34,14 @@ function App({title}) {
         setCompanies(nextCompaniesList);
     };
 
-    const filterItems = (event) => {
-        const filteredItems = companies.filter((company) => 
-        company.name.toLowerCase().includes(event.target.value.toLowerCase()));
+    const onSearchChange = (event) => setSearchedText(event.target.value.toLowerCase());
+    const onSelectedStatusChange = (event) => setSelectedStatus(event.target.value);
 
-        console.log("Search:", event.target.value);
-        console.log("Results:", filteredItems);
-        setFilteredCompanies(filteredItems);
-    };
-
+    const visibleCompanies = companies.filter((company) => {
+        if (selectedStatus == "All") return true;
+        return company.status == selectedStatus;
+    }).filter(company => company.name.toLowerCase().includes(searchedText));
+ 
     
     return (<>
         <section id='app'>
@@ -59,10 +60,12 @@ function App({title}) {
                 ];
                 setCompanies(newCompaniesList);
             }}/>
-        </div>
-            <div id='search-bar'><SearchBar onSearchChange={filterItems}/></div>
+        </div><div className='filters'>
+            <SearchBar searchedText={searchedText} onSearchChange={onSearchChange}/>
+            <StatusDropdown selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange}/>
+            </div>
             <div id='companies'>
-                    {filteredCompanies.map((company, i) =>(
+                    {visibleCompanies.map((company, i) =>(
                         <CompanyCard key={i} {...company} onStatusChange={onStatusChange} deleteCompany={deleteCompany}/>
                     ))}
             </div>
