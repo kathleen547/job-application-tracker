@@ -22,6 +22,14 @@ function App({title}) {
         localStorage.setItem("companies", JSON.stringify(companies));
     }, [companies]);
 
+
+    const editCompany = (id) => {
+        const nextCompaniesListWithEdited = [...companies];
+        const editedCompany = nextCompaniesListWithEdited.find(company => company.id === id);
+        
+        setCompanies(nextCompaniesListWithEdited);
+    };
+
     const deleteCompany = (id) => {
         const newCompanies = companies.filter(company => company.id !== id);
         setCompanies(newCompanies);
@@ -36,6 +44,14 @@ function App({title}) {
 
     const onSearchChange = (event) => setSearchedText(event.target.value.toLowerCase());
     const onSelectedStatusChange = (event) => setSelectedStatus(event.target.value);
+
+    const onSaveChanges = (id, values) =>{
+        const nextCompaniesList = [...companies];
+        const changedCompany = nextCompaniesList.find(company => company.id === id);
+        changedCompany.website = values.editedWebsite;
+        changedCompany.notes = values.editedNotes;
+        setCompanies(nextCompaniesList);
+    }
 
     const visibleCompanies = companies.filter((company) => {
         if (selectedStatus == "All") return true;
@@ -66,7 +82,9 @@ function App({title}) {
             </div>
             <div id='companies'>
                     {visibleCompanies.map((company, i) =>(
-                        <CompanyCard key={i} {...company} onStatusChange={onStatusChange} deleteCompany={deleteCompany}/>
+                        <CompanyCard key={i} {...company} 
+                        onStatusChange={onStatusChange} editCompany={editCompany} 
+                        deleteCompany={deleteCompany} onSaveChanges={onSaveChanges}/>
                     ))}
             </div>
             </section>

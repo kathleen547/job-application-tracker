@@ -33,15 +33,19 @@ export default function AddCompanyForm({onAddCompany}){
         <>
         <form onSubmit={submit}>
             <h3>Add new company info</h3>
+            <div className="form-row"><label htmlFor="name">Company name:</label>
             <input value={name}
                 onChange={event => setName(event.target.value)} 
                 type="text" placeholder="Company name..." required/>
+            </div>
+            <div className="form-row"><label htmlFor="website">Website:</label>
             <input value={website} 
                 onChange={event => setWebsite(event.target.value)}
-                type="text" placeholder="Company website..." required/>
+                type="text" placeholder="Company website..." required/></div>
+            <div className="form-row"><label htmlFor="notes">Notes:</label>
             <input value={notes}
                 onChange={event => setNotes(event.target.value)}
-                type="text" placeholder="Notes..." required />
+                type="text" placeholder="Notes..." required /></div>
             <select value={status} 
                 onChange={event => setStatus(event.target.value)}>
                     <option value="Interested">Interested</option>
