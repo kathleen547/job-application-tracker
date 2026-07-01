@@ -5,8 +5,7 @@ import CompanyCard from './components/CompanyCard';
 import AddCompanyForm from './components/CompanyForm';
 import {companiesData} from './data/companies';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import StatusDropdown from './components/StatusDropdown';
+import Toolbar from './components/Toolbar';
 
 function App({title}) {
 
@@ -76,9 +75,8 @@ function App({title}) {
                 ];
                 setCompanies(newCompaniesList);
             }}/>
-        </div><div className='filters'>
-            <SearchBar searchedText={searchedText} onSearchChange={onSearchChange}/>
-            <StatusDropdown selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange}/>
+        </div><div>
+            <Toolbar searchedText={searchedText} onSearchChange={onSearchChange} selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange}/>
             </div>
             <div id='companies'>
                     {visibleCompanies.map((company, i) =>(
