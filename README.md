@@ -1,16 +1,59 @@
-# React + Vite
+# Job Application Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+Job Application Tracker is a React application designed to help users organize and monitor their job search. It allows users to manage applications in one place, track their current status, search and filter records, and store data locally in the browser.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The project was created to practice modern React concepts, including component-based architecture, state management, event handling, conditional rendering, and browser local storage.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+Currently implemented
+- Add new job applications
+- Edit existing applications
+- Delete applications
+- Track application status (Interested, Applied, Interview, Offer, Rejected)
+- Search applications by company name
+- Filter applications by status
+- Persist application data using Local Storage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Tech Stack
+
+- React
+- JavaScript (ES6+)
+- Vite
+- CSS3
+- HTML5
+- Local Storage API
+
+
+## Installation
+
+1. Clone the repository: 
+```
+git clone https://github.com/kathleen547/job-application-tracker.git
+```
+
+2. Navigate to the project directory:
+```
+cd job-application-tracker
+```
+
+3. Install dependencies:
+```
+npm install
+```
+
+4. Start the development server:
+```
+npm run dev
+```
+
+5. Open the application in your browser using the local URL displayed by Vite.
+
+
+## Work In Progress
+
+This project is currently under active development. Additional features and UI improvements are being added regularly.
