@@ -8,6 +8,12 @@
   position: relative;
   overflow: hidden;
   min-height: 200px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
 }
 
 h2{
@@ -22,11 +28,31 @@ h2{
   gap: 30px;
 }
 
+#company-form{
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #company-form form{
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 500px;
+  width: 100%;
+  max-width: 600px;
   border-radius: 3%;
   background-color:#FDEB9E;
   margin-bottom: 20px;

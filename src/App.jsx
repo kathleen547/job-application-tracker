@@ -56,12 +56,18 @@ function App({title}) {
         if (selectedStatus == "All") return true;
         return company.status == selectedStatus;
     }).filter(company => company.name.toLowerCase().includes(searchedText));
- 
+    
+    const [showForm, setShowForm] = useState(false);
+    const toggleForm = () => setShowForm(wasShown => !wasShown);
     
     return (<>
         <section id='app'>
         <h1>{title}</h1>
-        <div id='company-form'>
+        <div>
+            <Toolbar searchedText={searchedText} onSearchChange={onSearchChange} selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange} toggleForm={toggleForm}/>
+            </div>
+            {showForm && 
+            <div id='company-form'>
             <AddCompanyForm onAddCompany={(values) => {
                 const newCompaniesList = [
                     ...companies,
@@ -74,10 +80,9 @@ function App({title}) {
                     }
                 ];
                 setCompanies(newCompaniesList);
+                setShowForm(false);
             }}/>
-        </div><div>
-            <Toolbar searchedText={searchedText} onSearchChange={onSearchChange} selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange}/>
-            </div>
+        </div>}
             <div id='companies'>
                     {visibleCompanies.map((company, i) =>(
                         <CompanyCard key={i} {...company} 
