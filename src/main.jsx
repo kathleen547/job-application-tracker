@@ -6,6 +6,6 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App title='Company Wishlist' />
+    <App title='Job Application Tracker' />
   </StrictMode>,
 )

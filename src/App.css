@@ -1,14 +1,21 @@
 .card{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   background-color:#7AE2CF;
   border-radius: 3%;
-  box-shadow: 10px 5px #FDEB9E;
+  /*box-shadow: 10px 5px #FDEB9E;*/
   color:#06202B;
-  width: 80%;
-  padding: 30px;
+  width: 300px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
   min-height: 200px;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
   transition: transform .2s ease, box-shadow .2s ease;
+  margin-bottom: 20px;
 }
 
 .card:hover {
@@ -16,16 +23,47 @@
     box-shadow: 0 10px 24px rgba(0,0,0,.12);
 }
 
-h2{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 250;
-  color: #077A7D;
+.card p{
+  margin: 2px 0;
+  text-align: left;
 }
+
+.card select{
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  background-color: #FDEB9E;
+}
+
+h2{
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #077A7D;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.position{
+  font-size: 18px;
+}
+
+.card-header{
+  margin-bottom: 8px;
+}
+
+.card-meta{
+  margin-bottom: 10px;
+}
+
+
 
 #companies{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-left: 15px;
 }
 
 #company-form{
@@ -66,12 +104,16 @@ h2{
 }
 
 .badge{
+  display: flex;
+  justify-content: center;
+  align-items:end;
   position: absolute;
-  top: 5px;
-  left: -70px;
-  width: 250px;
-  transform: rotate(-35deg);
+  top: 20px;
+  right: -35px;
+  width: 200px;
+  transform: rotate(35deg);
   color: antiquewhite;
+  padding-left: 10px;
 }
 
 .badge-interested{
@@ -104,14 +146,18 @@ h2{
 }
 
 .edit-button{
+  background-color: #7AE2CF;
+  border-color: #7AE2CF;
   position: absolute;
   top: 5px;
-  right: 50px;
+  left: 50px;
 }
 .x-button{
+  background-color: #7AE2CF;
+  border-color: #7AE2CF;
   position: absolute;
   top: 5px;
-  right: 20px;
+  left: 20px;
 }
 
 
@@ -124,7 +170,8 @@ h2{
 
 textarea {
     min-height: 40px;
-    min-width: 350px;
+    width:250px ;
+    min-width: 250px;
     resize: vertical;
 }
 
@@ -171,6 +218,10 @@ textarea {
     background: #077A7D;
     color:#06202B;
     
+}
+
+::placeholder{
+  color:#FDEB9E;
 }
 
 .toolbar input:focus,

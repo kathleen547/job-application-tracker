@@ -44,7 +44,10 @@ export default function CompanyCard({id, name, website, notes, status, onStatusC
     if (isEditing) {
         return (
             <div className='card'>
+            <div className="card-header">
             <h2>{name}</h2>
+            <p className="position">Junior Software Developer</p>
+            </div>
             <p className={`badge ${badgeClasses[status]}`}>
             <label>
                 <select name="selectedStatus" value={status} onChange={event => onStatusChangeHandler(event)}>
@@ -55,8 +58,13 @@ export default function CompanyCard({id, name, website, notes, status, onStatusC
                     <option value="Rejected">Rejected</option>
                 </select>
             </label></p>
-            <p>Link: <input value={editedWebsite} onChange={event => setEditedWebsite(event.target.value)}type="text" placeholder={website} /></p>
-            <p><textarea value={editedNotes} onChange={event => setEditedNotes(event.target.value)} placeholder={notes} /></p>
+             <div className="card-meta">
+            <p>📍 Remote</p>
+            <p>📅 8 Jul 2026</p>
+            <p>🌐 <input value={editedWebsite} onChange={event => setEditedWebsite(event.target.value)}type="text" placeholder={website} /></p>
+            </div>
+            <div className="card-notes">
+            <p><textarea value={editedNotes} onChange={event => setEditedNotes(event.target.value)} placeholder={notes} /></p></div>
             <div className="edit-actions">
             <button onClick={event => transferValues(event)} className="save-button">Save</button>
             <button onClick={event => {setIsEditing(false);
@@ -69,7 +77,9 @@ export default function CompanyCard({id, name, website, notes, status, onStatusC
             <button onClick={event => {setIsEditing(true);
                 clickEditHandler()}} className="card-action-button edit-button">✎</button>
             <button onClick={clickHandler} className='card-action-button x-button'>✘</button>
+            <div className="card-header">
             <h2>{name}</h2>
+            <p className="position">Junior Software Developer</p></div>
             <p className={`badge ${badgeClasses[status]}`}>
             <label>
                 <select name="selectedStatus" value={status} onChange={event => onStatusChangeHandler(event)}>
@@ -80,8 +90,12 @@ export default function CompanyCard({id, name, website, notes, status, onStatusC
                     <option value="Rejected">Rejected</option>
                 </select>
             </label></p>
-            <p>Link: <a href='{website}'>{website}</a></p>
-            <p>{notes}</p>
+            <div className="card-meta">
+            <p>📍 Remote</p>
+            <p>📅 8 Jul 2026</p>
+            <p>🌐 <a href='{website}'>{website}</a></p></div>
+            <div className="card-notes">
+            <p>{notes}</p></div>
             
         </div>
     );
