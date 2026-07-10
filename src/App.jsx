@@ -47,6 +47,9 @@ function App({title}) {
     const onSaveChanges = (id, values) =>{
         const nextCompaniesList = [...companies];
         const changedCompany = nextCompaniesList.find(company => company.id === id);
+        changedCompany.position = values.editedPosition;
+        changedCompany.location = values.editedLocation;
+        changedCompany.date = values.editedDate;
         changedCompany.website = values.editedWebsite;
         changedCompany.notes = values.editedNotes;
         setCompanies(nextCompaniesList);
@@ -74,6 +77,9 @@ function App({title}) {
                     {
                         id: v4(),
                         name: values.name,
+                        position: values.position,
+                        location: values.location,
+                        date: values.date,
                         website: values.website,
                         notes: values.notes,
                         status: values.status

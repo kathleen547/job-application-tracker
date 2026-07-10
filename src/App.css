@@ -61,9 +61,10 @@ h2{
 
 #companies{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
-  margin-left: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 340px));
+  justify-content: start;
+  gap: 25px;
+  margin-left: 20px;
 }
 
 #company-form{
