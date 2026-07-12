@@ -6,6 +6,7 @@ import AddCompanyForm from './components/CompanyForm';
 import {companiesData} from './data/companies';
 import './App.css';
 import Toolbar from './components/Toolbar';
+import StatisticsDashboard from './components/Statistics';
 
 function App({title}) {
 
@@ -66,6 +67,7 @@ function App({title}) {
     return (<>
         <section id='app'>
         <h1>{title}</h1>
+        <div><StatisticsDashboard companies={companies}/></div>
         <div>
             <Toolbar searchedText={searchedText} onSearchChange={onSearchChange} selectedStatus={selectedStatus} onSelectedStatusChange={onSelectedStatusChange} toggleForm={toggleForm}/>
             </div>
