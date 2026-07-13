@@ -275,3 +275,46 @@ textarea {
     width: 100%;
   }
 }
+
+.stats{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  gap: 25px;
+  padding: 16px 20px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+  background: transparent;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.stats-card{
+  display:flex;
+  height: 60px;
+  width: 260px;
+  background-color: transparent;
+  color: #FDEB9E;
+  border: 1px solid #FDEB9E;
+  border-radius: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.left{
+  text-align: left;
+}
+.stats-icon{
+  padding-top: 10px;
+  padding-right: 2px;
+  
+}
+
+.title{
+  font-size: 14px;
+}
+
+.number{
+  font-size: 26px;
+  font-weight: bold;
+}
