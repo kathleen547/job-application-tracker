@@ -5,6 +5,8 @@ import {
     CartesianGrid,
     XAxis,
     YAxis,
+    ScatterChart,
+    Scatter
 } from "recharts";
 
 import { Briefcase, Building2, Users, Trophy } from 'lucide-react';
@@ -33,8 +35,21 @@ export default function StatisticsDashboard({companies}){
     
     data.forEach((v, i) => {v.fill = fill1[i];});
     
-    //console.log("Data: ", data);
+    const dates = companies.reduce((acc, obj) => {
+        acc[obj.date] = (acc[obj.date] || 0) + 1;
+        return acc;
+    }, {});
 
+    const sortedDates = Object.keys(dates).sort().reduce((obj, key) => {
+        obj[key] = dates[key];
+        return obj;
+    }, {});
+
+    const datesToDisplay = Object.entries(sortedDates).map(([key, value]) => ({
+        date: key,
+        app_number: value
+        }));
+        
     return (
         <>
         <div className="stats">
@@ -76,12 +91,21 @@ export default function StatisticsDashboard({companies}){
             </div>
 
         </div>
-        <BarChart width={600} height={600} data={data}>
+        <div className="charts-container">
+            <div className="chart-card">
+        <BarChart width={500} height={300} data={data}>
             <Bar dataKey="number" fill="green" />
             <CartesianGrid stroke="#ccc" />
             <XAxis dataKey="status" />
-            <YAxis />
-        </BarChart>
+            <YAxis allowDecimals={false}/>
+        </BarChart></div>
+        <div className="chart-card">
+        <ScatterChart width={500} height={300} >
+            <Scatter data={datesToDisplay} fill="blue" />
+            <CartesianGrid  stroke="#ccc" />
+            <XAxis dataKey="date" />
+            <YAxis dataKey="app_number" allowDecimals={false}/>
+        </ScatterChart></div></div>
         </>
     );
 
