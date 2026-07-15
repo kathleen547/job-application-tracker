@@ -277,6 +277,7 @@ textarea {
 }
 
 .stats{
+  
   display: flex;
   align-items: center;
   justify-content:space-between;
@@ -293,8 +294,8 @@ textarea {
   height: 60px;
   width: 260px;
   background-color: transparent;
-  color: #FDEB9E;
-  border: 1px solid #FDEB9E;
+  color: #7AE2CF;
+  border: 1px solid #7AE2CF;
   border-radius: 16px;
   justify-content: space-between;
   align-items: center;
@@ -324,4 +325,18 @@ textarea {
 .charts-container{
    display: grid;
    grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 25px;
+   margin-left: 25px;
+   margin-top: 10px;
+   margin-bottom: 25px;
+}
+
+.chart-card{
+  border: 1px solid #7AE2CF;
+  border-radius: 16px;
+  padding: 25px;
+  width: 85%;
+}
+label{
+  color:#7AE2CF;
 }

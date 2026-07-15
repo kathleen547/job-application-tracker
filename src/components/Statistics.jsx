@@ -46,10 +46,10 @@ export default function StatisticsDashboard({companies}){
     }, {});
 
     const datesToDisplay = Object.entries(sortedDates).map(([key, value]) => ({
-        date: key,
+        date: new Date(key).toLocaleDateString('en-us', { day: "numeric", month:"short"}),
         app_number: value
         }));
-        
+
     return (
         <>
         <div className="stats">
@@ -59,7 +59,7 @@ export default function StatisticsDashboard({companies}){
                 <div className="number">{all}</div>
                 </div>
                 <div className="right">
-                <div className="stats-icon"><Briefcase size={20} color="#FDEB9E" strokeWidth={1.75} /></div>
+                <div className="stats-icon"><Briefcase size={20} color="#7AE2CF" strokeWidth={1.75} /></div>
                 </div>
             </div>
             <div className="stats-card">
@@ -68,7 +68,7 @@ export default function StatisticsDashboard({companies}){
                 <div className="number">{active}</div>
                 </div>
                 <div className="right">
-                <div className="stats-icon"><Building2 size={20} color="#FDEB9E" strokeWidth={1.75} /></div>
+                <div className="stats-icon"><Building2 size={20} color="#7AE2CF" strokeWidth={1.75} /></div>
                 </div>
             </div>
             <div className="stats-card">
@@ -77,7 +77,7 @@ export default function StatisticsDashboard({companies}){
                 <div className="number">{count["Interview"]}</div>
                 </div>
                 <div className="right">
-                <div className="stats-icon"><Users size={20} color="#FDEB9E" strokeWidth={1.75} /></div>
+                <div className="stats-icon"><Users size={20} color="#7AE2CF" strokeWidth={1.75} /></div>
                 </div>
             </div>
             <div className="stats-card">
@@ -86,25 +86,25 @@ export default function StatisticsDashboard({companies}){
                 <div className="number">{count["Offer"]}</div>
                 </div>
                 <div className="right">
-                <div className="stats-icon"><Trophy size={20} color="#FDEB9E" strokeWidth={1.75} /></div>
+                <div className="stats-icon"><Trophy size={20} color="#7AE2CF" strokeWidth={1.75} /></div>
                 </div>
             </div>
 
         </div>
         <div className="charts-container">
             <div className="chart-card">
-        <BarChart width={500} height={300} data={data}>
-            <Bar dataKey="number" fill="green" />
-            <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="status" />
-            <YAxis allowDecimals={false}/>
+                <label>Application Status</label>
+        <BarChart width={450} height={250} data={data} >
+            <Bar dataKey="number" fill="green"  />
+            <XAxis dataKey="status" fontSize={12} interval={0} stroke="#7AE2CF"/>
+            <YAxis allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
         </BarChart></div>
         <div className="chart-card">
-        <ScatterChart width={500} height={300} >
+            <label>Applications Over Time</label>
+        <ScatterChart width={450} height={250} >
             <Scatter data={datesToDisplay} fill="blue" />
-            <CartesianGrid  stroke="#ccc" />
-            <XAxis dataKey="date" />
-            <YAxis dataKey="app_number" allowDecimals={false}/>
+            <XAxis dataKey="date" fontSize={12} stroke="#7AE2CF"/>
+            <YAxis dataKey="app_number" allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
         </ScatterChart></div></div>
         </>
     );
