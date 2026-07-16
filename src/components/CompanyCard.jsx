@@ -31,8 +31,11 @@ export default function CompanyCard({id, name, position, location, date, website
         editCompany(id);
     }
 
-    function clickHandler(){
-        deleteCompany(id);
+    function clickHandlerWithConfirm(){
+        if(window.confirm("Are you sure want to delete?")){
+            deleteCompany(id);
+        }
+    
     }
 
     function onStatusChangeHandler(event){
@@ -82,7 +85,7 @@ export default function CompanyCard({id, name, position, location, date, website
         <div className='card'>
             <button onClick={event => {setIsEditing(true);
                 clickEditHandler()}} className="card-action-button edit-button">✎</button>
-            <button onClick={clickHandler} className='card-action-button x-button'>✘</button>
+            <button onClick={clickHandlerWithConfirm} className='card-action-button x-button'>✘</button>
             <div className="card-header">
             <h2>{name}</h2>
             <p className="position">{position}</p></div>
