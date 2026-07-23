@@ -35,7 +35,6 @@ export default function CompanyCard({id, name, position, location, date, website
         if(window.confirm("Are you sure want to delete?")){
             deleteCompany(id);
         }
-    
     }
 
     function onStatusChangeHandler(event){

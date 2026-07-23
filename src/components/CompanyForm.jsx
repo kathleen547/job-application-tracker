@@ -68,9 +68,10 @@ export default function AddCompanyForm({onAddCompany}){
                 onChange={event => setWebsite(event.target.value)}
                 type="text" placeholder="Company website..." required/></div>
             <div className="form-row"><label htmlFor="notes">Notes:</label>
-            <input value={notes}
+            <textarea value={notes}
                 onChange={event => setNotes(event.target.value)}
-                type="text" placeholder="Notes..." required /></div>
+                type="text" placeholder="Notes..." rows={3} required /></div>
+            <div className="form-row"><label htmlFor="status">Status:</label>
             <select value={status} 
                 onChange={event => setStatus(event.target.value)}>
                     <option value="Interested">Interested</option>
@@ -78,8 +79,9 @@ export default function AddCompanyForm({onAddCompany}){
                     <option value="Interview">Interview</option>
                     <option value="Offer">Offer</option>
                     <option value="Rejected">Rejected</option>
-                </select>
-            <button>SUBMIT</button>
+                </select></div>
+            <div className="form-actions">
+            <button>SUBMIT</button></div>
         </form>
         </>
     );

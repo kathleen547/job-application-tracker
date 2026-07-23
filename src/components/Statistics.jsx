@@ -93,16 +93,16 @@ export default function StatisticsDashboard({companies}){
         </div>
         <div className="charts-container">
             <div className="chart-card">
-                <label>Application Status</label>
-        <BarChart width={450} height={250} data={data} >
+                <label className="chart-label">Application Status</label>
+        <BarChart width={450} height={180} data={data} >
             <Bar dataKey="number" fill="green"  />
             <XAxis dataKey="status" fontSize={12} interval={0} stroke="#7AE2CF"/>
             <YAxis allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
         </BarChart></div>
         <div className="chart-card">
-            <label>Applications Over Time</label>
-        <ScatterChart width={450} height={250} >
-            <Scatter data={datesToDisplay} fill="blue" />
+            <label className="chart-label">Applications Over Time</label>
+        <ScatterChart width={450} height={180} >
+            <Scatter data={datesToDisplay} fill="white" />
             <XAxis dataKey="date" fontSize={12} stroke="#7AE2CF"/>
             <YAxis dataKey="app_number" allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
         </ScatterChart></div></div>
