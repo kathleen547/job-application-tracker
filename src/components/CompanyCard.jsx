@@ -69,7 +69,7 @@ export default function CompanyCard({id, name, position, location, date, website
              <div className="card-meta">
             <p>📍<input value={editedLocation} onChange={event => setEditedLocation(event.target.value)} type="text" placeholder={location}/> </p>
             <p>📅 <input value={editedDate} onChange={event => setEditedDate(event.target.value)} type="date" placeholder={date}/> </p>
-            <p>🌐 <input value={editedWebsite} onChange={event => setEditedWebsite(event.target.value)}type="text" placeholder={website} /></p>
+            <p className="card-link">🌐 <input value={editedWebsite} onChange={event => setEditedWebsite(event.target.value)}type="text" placeholder={website} /></p>
             </div>
             <div className="card-notes">
             <p><textarea value={editedNotes} onChange={event => setEditedNotes(event.target.value)} placeholder={notes} /></p></div>
@@ -101,7 +101,7 @@ export default function CompanyCard({id, name, position, location, date, website
             <div className="card-meta">
             <p>📍 {location}</p>
             <p>📅 {date}</p>
-            <p>🌐 <a href='{website}'>{website}</a></p></div>
+            <p>🌐 <a href='{website}'>View job posting</a></p></div>
             <div className="card-notes">
             <p>{notes}</p></div>
             

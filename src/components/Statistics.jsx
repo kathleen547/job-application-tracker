@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    ResponsiveContainer,
     BarChart,
     Bar,
     CartesianGrid,
@@ -94,18 +95,20 @@ export default function StatisticsDashboard({companies}){
         <div className="charts-container">
             <div className="chart-card">
                 <label className="chart-label">Application Status</label>
+        <ResponsiveContainer width="100%" aspect={2.4} maxHeight={400}>
         <BarChart width={450} height={180} data={data} >
             <Bar dataKey="number" fill="green"  />
             <XAxis dataKey="status" fontSize={12} interval={0} stroke="#7AE2CF"/>
             <YAxis allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
-        </BarChart></div>
+        </BarChart></ResponsiveContainer></div>
         <div className="chart-card">
             <label className="chart-label">Applications Over Time</label>
+            <ResponsiveContainer width="100%" aspect={2.4} maxHeight={400}>
         <ScatterChart width={450} height={180} >
             <Scatter data={datesToDisplay} fill="white" />
             <XAxis dataKey="date" fontSize={12} stroke="#7AE2CF"/>
             <YAxis dataKey="app_number" allowDecimals={false} fontSize={12} stroke="#7AE2CF"/>
-        </ScatterChart></div></div>
+        </ScatterChart></ResponsiveContainer></div></div>
         </>
     );
 
